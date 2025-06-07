@@ -1,6 +1,6 @@
 - name: deploy
   hosts: web
-  became: yes
+  become: yes
   tasks:
     - name: copy
       copy:
