@@ -1,0 +1,14 @@
+- name: deploy
+  hosts: web
+  became: yes
+  tasks:
+    - name: copy
+      copy:
+        src: "/var/snap/jenkins/4865/workspace/mvnans/target/mvnansi.war""'
+        dest: "/opt/tomcat/webapps/mvnansi.war"
+        remote_src: no
+       
+    - name: restart tomcat 
+      systemd:
+         name: tomcat
+         state: restarted
